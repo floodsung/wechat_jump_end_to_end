@@ -20,3 +20,13 @@ or
 python run_android.py
 
 ```
+
+## Note
+
+The code is tested on iPhone 6s and Xiaomi Note3. 
+
+Due to different screen pixels on different phones, you have to adjust SCALE value in the code so as to run successfully on your device.
+
+Just adjust SCALE value in [0.9,1.1]. 
+
+Have Fun!

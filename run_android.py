@@ -11,6 +11,8 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 
+SCALE = 1.02
+
 class CNNEncoder(nn.Module):
     """docstring for ClassName"""
     def __init__(self):
@@ -86,7 +88,7 @@ def set_button_position(im):
     swipe_x1, swipe_y1, swipe_x2, swipe_y2 = left, top, left, top
 
 def jump(press_time):
-    press_time = int(press_time)
+    press_time = int(press_time*SCALE)
     cmd = 'adb shell input swipe {x1} {y1} {x2} {y2} {duration}'.format(
         x1=swipe_x1,
         y1=swipe_y1,

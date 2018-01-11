@@ -13,7 +13,9 @@ from torch.autograd import Variable
 
 import wda
 
-client = wda.Client("http://169.254.154.21:8100")
+SCALE = 0.93
+
+client = wda.Client("http://169.254.105.154:8100")
 session = client.session()
 
 def pull_screenshot(name="autojump.png"):
@@ -95,7 +97,7 @@ def main():
     if os.path.exists("./model.pkl"):
         net.load_state_dict(torch.load("./model.pkl",map_location=lambda storage, loc: storage))
         print("load model")
-    net.eval()
+    #net.eval()
 
     print("load ok")
 
@@ -108,14 +110,9 @@ def main():
         image = Variable(image.unsqueeze(0))
         press_time = net(image).data[0].numpy()[0]
         print(press_time)
-        jump(int(press_time*0.93)/1000.0)
+        jump(int(press_time*SCALE)/1000.0)
 
-        time.sleep(random.uniform(1.5, 2))
-
-
-
-
-
+        time.sleep(random.uniform(1, 1.5))
 
 if __name__ == '__main__':
     main()

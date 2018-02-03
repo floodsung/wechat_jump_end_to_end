@@ -32,3 +32,7 @@ Due to different screen pixels on different phones, you have to adjust SCALE val
 Just adjust SCALE value in [0.9,1.1]. 
 
 Have Fun!
+
+## About Training
+
+If you are interested in how to train this model, please check this git: [wechat_jump_end_to_end_train](https://github.com/songrotek/wechat_jump_end_to_end_train)
